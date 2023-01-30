@@ -1,8 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow&display=swap");
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
+  font-family: "Barlow", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url(https://get.pxhere.com/photo/cloud-black-and-white-sky-sun-sunset-sunlight-atmosphere-weather-storm-cumulus-darkness-monochrome-clouds-grey-sky-thunderstorm-meteorological-phenomenon-682968.jpg);

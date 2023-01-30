@@ -1,41 +1,33 @@
-import styled, { css } from "styled-components/macro";
+import styled from "styled-components/macro";
 
 export const SearchBar = styled.div`
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  border-radius: 0.8rem;
-  background-color: red;
+  border-bottom: 1px solid white;
+  padding-top: 16px;
+  padding-bottom: 8px;
+  padding-right: 8px;
+  padding-left: 8px;
 `;
 
 export const SearchIcon = styled.div`
   display: flex;
   align-items: center;
-  color: #8a939b;
+  color: white;
   margin-left: 0.75rem; /* 12px */
   margin-right: 0.75rem; /* 12px */
   font-weight: 700;
   font-size: 1.125rem; /* 18px */
   line-height: 1.75rem;
-  ${(props) =>
-    props.white &&
-    css`
-      font-size: 24px;
-      color: black;
-    `};
 `;
-export const CloseIcon = styled.div`
+export const TempIcon = styled.div`
   display: flex;
   align-items: center;
-  color: #8a939b;
+  color: white;
   margin-left: 0.75rem; /* 12px */
   margin-right: 0.75rem; /* 12px */
-  font-weight: 700;
-  font-size: 1.125rem; /* 18px */
+  font-weight: 300;
+  font-size: 25px;
   line-height: 1.75rem;
-  cursor: pointer;
-  ${(props) =>
-    props.white &&
-    css`
-      font-size: 24px;
-      color: black;
-    `};
 `;

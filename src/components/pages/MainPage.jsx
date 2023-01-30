@@ -1,13 +1,17 @@
 import React from "react";
-import { LeftBar } from "../organisms/leftBar/LeftBar";
+import { LeftBar, MainInfo } from "../../components";
+import * as S from "./styles";
 
 const MainPage = () => {
   return (
-    <div>
-      MainPage
-      <div>Background image changes depending on weather</div>
-      <LeftBar />
-    </div>
+    <S.MainPageWrapper>
+      <S.LeftBarWrapper>
+        <LeftBar />
+      </S.LeftBarWrapper>
+      <S.MainInfoWrapper1>
+        <MainInfo />
+      </S.MainInfoWrapper1>
+    </S.MainPageWrapper>
   );
 };
 

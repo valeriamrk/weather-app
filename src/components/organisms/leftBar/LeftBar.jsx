@@ -7,7 +7,13 @@ class LeftBar extends Component {
     return (
       <S.LeftBarWrapper>
         <SearchBar />
-        <div>Temeprature, humidity %</div>
+        <S.FirstBlock>
+          <S.TempContainer>20 °</S.TempContainer>
+          <S.HumWindContainer>
+            <S.Humidity>34%</S.Humidity>
+            <S.Wind>Wind: WSW 6 mph</S.Wind>
+          </S.HumWindContainer>
+        </S.FirstBlock>
         <div>UV index safe/dangerous%</div>
         <div>Temperature chart</div>
         <div>Temperature chart</div>
