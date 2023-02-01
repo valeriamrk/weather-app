@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { InputField } from "../../../components";
 import * as S from "./styles";
 import { CiTempHigh } from "react-icons/ci";
 import { IoSearchOutline } from "react-icons/io5";
@@ -7,11 +6,11 @@ import { IoSearchOutline } from "react-icons/io5";
 class SearchBar extends Component {
   render() {
     return (
-      <S.SearchBar>
+      <S.SearchBar onSubmit={this.props.gettingWeather}>
         <S.TempIcon>
           <CiTempHigh />
         </S.TempIcon>
-        <InputField />
+        <S.InputField name="city" placeholder="enter the city" />
         <S.SearchIcon>
           <IoSearchOutline />
         </S.SearchIcon>

@@ -4,7 +4,7 @@ export const LeftBarWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   /* width: 25%; */
   height: 100vh;
   background: rgba(255, 255, 255, 0.1);
@@ -19,8 +19,7 @@ export const FirstBlock = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  margin-top: 20%;
+  margin-top: 20px;
 `;
 
 export const TempContainer = styled.div`
@@ -28,15 +27,14 @@ export const TempContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  font-size: 56px;
+  font-size: 64px;
+  font-weight: 700;
 `;
 
 export const HumWindContainer = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 20%;
+  align-items: center;
 `;
 
 export const Wind = styled.div`
@@ -50,4 +48,45 @@ export const Humidity = styled.div`
   display: flex;
   flex-direction: row;
   font-size: 24px;
+`;
+export const City = styled.div`
+  display: flex;
+  flex-direction: row;
+  font-size: 36px;
+  margin-bottom: 20px;
+  margin-top: 40px;
+`;
+
+// Uv container
+
+export const UVTitle = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 16px;
+`;
+export const UVDescription = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+`;
+export const UVContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-bottom: 40px;
+`;
+export const UVSafeDanger = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 14px;
+`;
+
+export const DotSize = styled.img`
+  width: 6px;
+  margin-right: 6px;
 `;
