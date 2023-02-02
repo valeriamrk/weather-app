@@ -4,14 +4,29 @@ import { BsCloudRainHeavy } from "react-icons/bs";
 import { Forecast } from "../../../components";
 
 class MainInfo extends Component {
+  state = {
+    currentDate: new Date().toLocaleString(),
+    // weekday: Date().getDay(),
+  };
+
+  getWeekday = () => {
+    const date = new Date();
+    let weekday = date.getDate();
+    console.log(weekday);
+  };
+
+  componentDidMount() {
+    this.getWeekday();
+  }
+
   render() {
     return (
       <S.MainInfoWrapper>
-        <S.Title>
-          Storm <br /> with Heavy Rain
-        </S.Title>
+        <S.Title>{this.props.weatherDescription}</S.Title>
         <S.Description>
-          <BsCloudRainHeavy /> RU, Moscow, Friday, jan 29, 2023, 8.45PM
+          <BsCloudRainHeavy /> {this.props.country}, {this.props.city},
+          {this.state.currentDate} Friday
+          {/* {this.state.weekday} */}
         </S.Description>
         <S.ForecastWrapper>
           <Forecast />

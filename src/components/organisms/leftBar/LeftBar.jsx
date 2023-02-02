@@ -11,15 +11,15 @@ class LeftBar extends Component {
           <SearchBar gettingWeather={this.props.gettingWeather} />
           <S.City>
             <MdPlace />
-            RU, Moscow
+            {this.props.country}, {this.props.city}
           </S.City>
-          <S.TempContainer>20 °</S.TempContainer>
+          <S.TempContainer>{this.props.currentTemperature} °C</S.TempContainer>
           <S.HumWindContainer>
-            <S.Humidity>34%</S.Humidity>
-            <S.Wind>Wind: WSW 6 mph</S.Wind>
+            <S.Humidity>{this.props.humidity}%</S.Humidity>
+            <S.Wind>Wind: WSW {this.props.wind} mph</S.Wind>
           </S.HumWindContainer>
         </S.FirstBlock>
-        <S.UVContainer>
+        {/* <S.UVContainer>
           <S.UVTitle>UV Index 0.8%</S.UVTitle>
           <S.UVDescription>
             <S.UVSafeDanger>
@@ -57,7 +57,7 @@ class LeftBar extends Component {
               </div>
             </S.UVSafeDanger>
           </S.UVDescription>
-        </S.UVContainer>
+        </S.UVContainer> */}
       </S.LeftBarWrapper>
     );
   }

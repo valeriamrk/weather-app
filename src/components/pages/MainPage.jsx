@@ -7,10 +7,23 @@ export default class MainPage extends Component {
     return (
       <S.MainPageWrapper>
         <S.LeftBarWrapper>
-          <LeftBar gettingWeather={this.props.gettingWeather} />
+          <LeftBar
+            gettingWeather={this.props.gettingWeather}
+            city={this.props.city}
+            country={this.props.country}
+            currentTemperature={this.props.currentTemperature}
+            humidity={this.props.humidity}
+            wind={this.props.wind}
+            error={this.props.error}
+          />
         </S.LeftBarWrapper>
         <S.MainInfoWrapper1>
-          <MainInfo />
+          <MainInfo
+            weatherDescription={this.props.weatherDescription}
+            city={this.props.city}
+            country={this.props.country}
+            currentDate={this.props.currentDate}
+          />
         </S.MainInfoWrapper1>
       </S.MainPageWrapper>
     );
