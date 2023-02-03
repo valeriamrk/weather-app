@@ -9,6 +9,7 @@ export const SearchBar = styled.form`
   padding-bottom: 8px;
   padding-right: 8px;
   padding-left: 8px;
+  width: 80%;
 `;
 
 export const SearchIcon = styled.button`
@@ -38,6 +39,7 @@ export const TempIcon = styled.div`
 `;
 
 export const InputField = styled.input`
+  width: 80%;
   font-family: "Poppins", sans-serif;
   border-width: 0px;
   border: none;
@@ -46,4 +48,25 @@ export const InputField = styled.input`
   box-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width))
     var(--tw-ring-color);
   color: #e6e8eb;
+  color: #fffff7;
+  ::-webkit-input-placeholder {
+    font-size: 12px;
+    color: #fffff7;
+    opacity: 0.3;
+  }
+  ::-moz-placeholder {
+    font-size: 12px;
+    color: #fffff7;
+    opacity: 0.3;
+  } /* Firefox 19+ */
+  :-moz-placeholder {
+    font-size: 12px;
+    color: #fffff7;
+    opacity: 0.3;
+  } /* Firefox 18- */
+  :-ms-input-placeholder {
+    font-size: 12px;
+    color: #fffff7;
+    opacity: 0.3;
+  }
 `;

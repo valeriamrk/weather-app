@@ -2,23 +2,45 @@ import * as S from "./styles";
 import React, { Component } from "react";
 import { SearchBar } from "../../../components";
 import { MdPlace } from "react-icons/md";
+import { WiHumidity, WiStrongWind, WiSnow } from "react-icons/wi";
 
 class LeftBar extends Component {
   render() {
     return (
       <S.LeftBarWrapper>
         <S.FirstBlock>
-          <SearchBar gettingWeather={this.props.gettingWeather} />
-          <S.City>
-            <MdPlace />
-            {this.props.country}, {this.props.city}
-          </S.City>
-          <S.TempContainer>{this.props.currentTemperature} °C</S.TempContainer>
-          <S.HumWindContainer>
-            <S.Humidity>{this.props.humidity}%</S.Humidity>
-            <S.Wind>Wind: WSW {this.props.wind} mph</S.Wind>
-          </S.HumWindContainer>
+          <SearchBar
+            gettingWeather={this.props.gettingWeather}
+            gettingForecastWeather={this.props.gettingForecastWeather}
+          />
+          <S.CityContainer>
+            <S.LocationIcon>
+              <MdPlace />
+            </S.LocationIcon>
+            <S.City>
+              {this.props.country}, {this.props.city}
+            </S.City>
+          </S.CityContainer>
+          <S.TempContainer>
+            <WiSnow />
+            {this.props.currentTemperature} °C
+          </S.TempContainer>
+          <div> Feels like: {this.props.feelsLike}</div>
         </S.FirstBlock>
+        <S.SecondBlock>
+          <S.WeatherContainer>
+            <S.WeatherIcon>
+              <WiHumidity />
+            </S.WeatherIcon>
+            <S.WeatherText>Humidity: {this.props.humidity}%</S.WeatherText>
+          </S.WeatherContainer>
+          <S.WeatherContainer>
+            <S.WeatherIcon>
+              <WiStrongWind />
+            </S.WeatherIcon>
+            <S.WeatherText>Wind: WSW {this.props.wind} mph</S.WeatherText>
+          </S.WeatherContainer>
+        </S.SecondBlock>
         {/* <S.UVContainer>
           <S.UVTitle>UV Index 0.8%</S.UVTitle>
           <S.UVDescription>

@@ -12,6 +12,7 @@ export default class MainPage extends Component {
             city={this.props.city}
             country={this.props.country}
             currentTemperature={this.props.currentTemperature}
+            feelsLike={this.props.feelsLike}
             humidity={this.props.humidity}
             wind={this.props.wind}
             error={this.props.error}

@@ -28,9 +28,9 @@ class MainInfo extends Component {
           {this.state.currentDate} Friday
           {/* {this.state.weekday} */}
         </S.Description>
-        <S.ForecastWrapper>
+        {/* <S.ForecastWrapper>
           <Forecast />
-        </S.ForecastWrapper>
+        </S.ForecastWrapper> */}
       </S.MainInfoWrapper>
     );
   }

@@ -10,11 +10,32 @@ class App extends Component {
     city: undefined,
     country: undefined,
     currentTemperature: undefined,
+    feelsLike: undefined,
     humidity: undefined,
     wind: undefined,
-    uvIndex: undefined,
     weatherDescription: undefined,
     error: undefined,
+  };
+
+  getDefaultWeather = async () => {
+    const apiUrlDefault = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=Moscow&appid=${apiKey}&units=metric`
+    );
+    const dataDefault = await apiUrlDefault.json();
+    this.setState({
+      city: dataDefault.name,
+      country: dataDefault.sys.country,
+      currentTemperature: Math.trunc(dataDefault.main.temp),
+      feelsLike: Math.trunc(dataDefault.main.feels_like),
+      humidity: dataDefault.main.humidity,
+      wind: Math.trunc(dataDefault.wind.speed),
+      weatherDescription: dataDefault.weather[0].description.replace(
+        dataDefault.weather[0].description[0],
+        dataDefault.weather[0].description[0].toUpperCase()
+      ),
+
+      error: undefined,
+    });
   };
 
   gettingWeather = async (e) => {
@@ -30,13 +51,21 @@ class App extends Component {
     this.setState({
       city: data.name,
       country: data.sys.country,
-      currentTemperature: data.main.temp,
+      currentTemperature: Math.trunc(data.main.temp),
+      feelsLike: Math.trunc(data.main.feels_like),
       humidity: data.main.humidity,
-      wind: data.wind.speed,
-      weatherDescription: data.weather[0].description,
+      wind: Math.trunc(data.wind.speed),
+      weatherDescription: data.weather[0].description.replace(
+        data.weather[0].description[0],
+        data.weather[0].description[0].toUpperCase()
+      ),
       error: undefined,
     });
   };
+
+  componentDidMount() {
+    this.getDefaultWeather();
+  }
 
   render() {
     return (
@@ -45,6 +74,7 @@ class App extends Component {
         city={this.state.city}
         country={this.state.country}
         currentTemperature={this.state.currentTemperature}
+        feelsLike={this.state.feelsLike}
         humidity={this.state.humidity}
         wind={this.state.wind}
         weatherDescription={this.state.weatherDescription}
