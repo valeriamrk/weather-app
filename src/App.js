@@ -22,24 +22,6 @@ class App extends Component {
     error: undefined,
   };
 
-  getCurrentDate = () => {
-    let date = new Date();
-    const currentDate =
-      date.getFullYear() +
-      "-" +
-      "0" +
-      (date.getMonth() + 1) +
-      "-" +
-      "0" +
-      date.getDate();
-    const currentTime = date.getHours() + ":" + date.getMinutes();
-
-    this.setState({
-      datetime: [currentDate, " ", currentTime],
-      gmt_offset: 3,
-    });
-  };
-
   getWeekday = () => {
     const date = new Date();
     let options = { weekday: "long" };
@@ -62,6 +44,12 @@ class App extends Component {
     const iconLink = iconUrl.url;
     console.log(iconLink);
 
+    const timezoneUrl = await fetch(
+      `https://timezone.abstractapi.com/v1/current_time/?api_key=${timezoneKey}&location=Moscow`
+    );
+    const timezoneData = await timezoneUrl.json();
+    const transformedTime = timezoneData.datetime.split(":", 2).join(":");
+
     this.setState({
       city: dataDefault.name,
       country: dataDefault.sys.country,
@@ -74,10 +62,10 @@ class App extends Component {
         dataDefault.weather[0].description[0].toUpperCase()
       ),
       icon: iconLink,
-
+      datetime: transformedTime,
+      gmt_offset: 3,
       error: undefined,
     });
-    this.getCurrentDate();
   };
 
   gettingWeather = async (e) => {
