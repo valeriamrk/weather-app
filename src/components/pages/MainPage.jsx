@@ -16,6 +16,7 @@ export default class MainPage extends Component {
             humidity={this.props.humidity}
             wind={this.props.wind}
             error={this.props.error}
+            icon={this.props.icon}
           />
         </S.LeftBarWrapper>
         <S.MainInfoWrapper1>
@@ -23,7 +24,10 @@ export default class MainPage extends Component {
             weatherDescription={this.props.weatherDescription}
             city={this.props.city}
             country={this.props.country}
-            currentDate={this.props.currentDate}
+            datetime={this.props.datetime}
+            gmt_offset={this.props.gmt_offset}
+            icon={this.props.icon}
+            weekday={this.props.weekday}
           />
         </S.MainInfoWrapper1>
       </S.MainPageWrapper>

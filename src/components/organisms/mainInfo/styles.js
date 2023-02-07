@@ -20,7 +20,10 @@ export const Title = styled.div`
 `;
 
 export const Description = styled.div`
-  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
   margin-left: 60px;
   margin-top: 40px;
 `;

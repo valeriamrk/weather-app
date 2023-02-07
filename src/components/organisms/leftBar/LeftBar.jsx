@@ -2,7 +2,7 @@ import * as S from "./styles";
 import React, { Component } from "react";
 import { SearchBar } from "../../../components";
 import { MdPlace } from "react-icons/md";
-import { WiHumidity, WiStrongWind, WiSnow } from "react-icons/wi";
+import { WiHumidity, WiStrongWind } from "react-icons/wi";
 
 class LeftBar extends Component {
   render() {
@@ -13,6 +13,7 @@ class LeftBar extends Component {
             gettingWeather={this.props.gettingWeather}
             gettingForecastWeather={this.props.gettingForecastWeather}
           />
+          <div>{this.props.error}</div>
           <S.CityContainer>
             <S.LocationIcon>
               <MdPlace />
@@ -22,7 +23,7 @@ class LeftBar extends Component {
             </S.City>
           </S.CityContainer>
           <S.TempContainer>
-            <WiSnow />
+            <img src={this.props.icon} alt="icon" />
             {this.props.currentTemperature} °C
           </S.TempContainer>
           <div> Feels like: {this.props.feelsLike}</div>
