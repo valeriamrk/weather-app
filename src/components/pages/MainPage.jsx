@@ -25,6 +25,8 @@ export default class MainPage extends Component {
             city={this.props.city}
             country={this.props.country}
             datetime={this.props.datetime}
+            date={this.props.date}
+            time={this.props.time}
             gmt_offset={this.props.gmt_offset}
             icon={this.props.icon}
             weekday={this.props.weekday}

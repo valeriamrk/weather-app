@@ -10,7 +10,8 @@ class MainInfo extends Component {
           <img src={this.props.icon} alt="icon" />
           {this.props.country}, {this.props.city} <br />
           {this.props.weekday},<br />
-          {this.props.datetime}
+          {this.props.datetime} {this.props.date}
+          {this.props.time}
           <br />
           GMT {this.props.gmt_offset}
         </S.Description>
