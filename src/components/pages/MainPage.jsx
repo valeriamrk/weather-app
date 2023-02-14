@@ -1,40 +1,52 @@
-import React, { Component } from "react";
+import React from "react";
 import { LeftBar, MainInfo } from "../../components";
 import * as S from "./styles";
 
-export default class MainPage extends Component {
-  render() {
-    return (
-      <S.MainPageWrapper>
-        <S.LeftBarWrapper>
-          <LeftBar
-            gettingWeather={this.props.gettingWeather}
-            city={this.props.city}
-            country={this.props.country}
-            currentTemperature={this.props.currentTemperature}
-            feelsLike={this.props.feelsLike}
-            humidity={this.props.humidity}
-            wind={this.props.wind}
-            error={this.props.error}
-            icon={this.props.icon}
-          />
-        </S.LeftBarWrapper>
-        <S.MainInfoWrapper1>
-          <MainInfo
-            weatherDescription={this.props.weatherDescription}
-            city={this.props.city}
-            country={this.props.country}
-            datetime={this.props.datetime}
-            date={this.props.date}
-            time={this.props.time}
-            gmt_offset={this.props.gmt_offset}
-            icon={this.props.icon}
-            weekday={this.props.weekday}
-          />
-        </S.MainInfoWrapper1>
-      </S.MainPageWrapper>
-    );
-  }
-}
+const MainPage = (props) => {
+  const {
+    background,
+    gettingWeather,
+    city,
+    country,
+    currentTemperature,
+    feelsLike,
+    humidity,
+    wind,
+    error,
+    icon,
+    weatherDescription,
+    datetime,
+    gmt_offset,
+    weekday,
+  } = props;
+  return (
+    <S.MainPageWrapper background={background}>
+      <S.LeftBarWrapper>
+        <LeftBar
+          gettingWeather={gettingWeather}
+          city={city}
+          country={country}
+          currentTemperature={currentTemperature}
+          feelsLike={feelsLike}
+          humidity={humidity}
+          wind={wind}
+          error={error}
+          icon={icon}
+        />
+      </S.LeftBarWrapper>
+      <S.MainInfoWrapper1>
+        <MainInfo
+          weatherDescription={weatherDescription}
+          city={city}
+          country={country}
+          datetime={datetime}
+          gmt_offset={gmt_offset}
+          icon={icon}
+          weekday={weekday}
+        />
+      </S.MainInfoWrapper1>
+    </S.MainPageWrapper>
+  );
+};
 
 export { MainPage };

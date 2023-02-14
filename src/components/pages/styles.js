@@ -4,6 +4,9 @@ export const MainPageWrapper = styled.div`
   display: flex;
   flex-direction: row;
   height: 100vh;
+  background-image: url(${(props) => props.background});
+  background-size: cover;
+  background-position: start;
 `;
 export const LeftBarWrapper = styled.div`
   display: flex;

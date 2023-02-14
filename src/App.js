@@ -41,7 +41,7 @@ class App extends Component {
     background: undefined,
   };
 
-  background = [
+  backgroundState = [
     {
       iconCode: "01d",
       backgroundId: clear_sky_day,
@@ -135,15 +135,31 @@ class App extends Component {
     });
   };
 
+  getBackground = (icon) => {
+    let result;
+    this.backgroundState.map((item) => {
+      if (item.iconCode === icon) {
+        result = item.backgroundId;
+        console.log(result);
+      }
+      return result;
+    });
+    this.setState({
+      background: result,
+    });
+  };
+
   getDefaultWeather = async () => {
     const apiUrlDefault = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=Moscow&appid=${apiKey}&units=metric`
     );
     const dataDefault = await apiUrlDefault.json();
     const icon = dataDefault.weather[0].icon;
+    console.log(icon, "iconnnn");
 
     this.getTimezone("Moscow");
     this.getIcon(icon);
+    this.getBackground(icon);
 
     this.setState({
       city: dataDefault.name,
@@ -169,27 +185,11 @@ class App extends Component {
         `https://api.openweathermap.org/data/2.5/weather?q=${currentCity}&appid=${apiKey}&units=metric`
       );
       const data = await apiUrl.json();
-
       const icon = data.weather[0].icon;
-
-      // const getBackground = () => {
-      //   console.log(icon, "backgr");
-      //   this.background.map((element) => {
-      //     if (element.iconCode === icon) {
-      //       const newBackground = element.backgroundId
-      //       console.log(element.backgroundId, "ID");
-      //     }
-      //     return newBackground;
-      //   });
-      //   console.log(this.state.background);
-
-      //   // получаю icon, если оно совпадает с данными из объекта, то выводим бэкграунд, соответствующий иконке
-      // };
-
-      // getBackground();
 
       this.getTimezone(currentCity);
       this.getIcon(icon);
+      this.getBackground(icon);
 
       this.setState({
         city: data.name,
@@ -233,6 +233,7 @@ class App extends Component {
         datetime={this.state.datetime}
         gmt_offset={this.state.gmt_offset}
         weekday={this.state.weekday}
+        background={this.state.background}
         error={this.state.error}
       />
     );
