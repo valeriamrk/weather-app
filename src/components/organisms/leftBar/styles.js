@@ -52,6 +52,10 @@ export const WeatherText = styled.div`
   align-items: center;
   font-size: 24px;
   margin-left: 16px;
+  @media (max-width: 768px) {
+    font-size: 18px;
+    margin-left: 8px;
+  }
 `;
 
 export const WeatherIcon = styled.div`
@@ -59,6 +63,9 @@ export const WeatherIcon = styled.div`
   flex-direction: row;
   align-items: center;
   font-size: 32px;
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
 `;
 
 export const LocationIcon = styled.div`

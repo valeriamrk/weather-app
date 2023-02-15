@@ -15,11 +15,12 @@ const LeftBar = (props) => {
     feelsLike,
     humidity,
     wind,
+    getCity,
   } = props;
   return (
     <S.LeftBarWrapper>
       <S.FirstBlock>
-        <SearchBar gettingWeather={gettingWeather} />
+        <SearchBar gettingWeather={gettingWeather} getCity={getCity} />
         <div>{error}</div>
         <S.CityContainer>
           <S.LocationIcon>

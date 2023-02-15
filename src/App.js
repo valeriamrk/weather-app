@@ -26,6 +26,7 @@ const timezoneKey = TIMEZONE_KEY;
 
 class App extends Component {
   state = {
+    initialCity: "Moscow",
     city: undefined,
     country: undefined,
     datetime: undefined,
@@ -112,7 +113,6 @@ class App extends Component {
       `https://timezone.abstractapi.com/v1/current_time/?api_key=${timezoneKey}&location=${currentCity}`
     );
     const timezoneData = await timezoneUrl.json();
-    console.log(timezoneData);
     const transformData = timezoneData.datetime.split(" ");
     const date = transformData[0];
     const time = transformData[1].slice(0, 5);
@@ -129,7 +129,6 @@ class App extends Component {
       `http://openweathermap.org/img/wn/${icon}@2x.png`
     );
     const iconLink = iconUrl.url;
-    console.log(iconLink);
     this.setState({
       icon: iconLink,
     });
@@ -140,7 +139,6 @@ class App extends Component {
     this.backgroundState.map((item) => {
       if (item.iconCode === icon) {
         result = item.backgroundId;
-        console.log(result);
       }
       return result;
     });
@@ -149,45 +147,35 @@ class App extends Component {
     });
   };
 
-  getDefaultWeather = async () => {
-    const apiUrlDefault = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=Moscow&appid=${apiKey}&units=metric`
-    );
-    const dataDefault = await apiUrlDefault.json();
-    const icon = dataDefault.weather[0].icon;
-    console.log(icon, "iconnnn");
-
-    this.getTimezone("Moscow");
-    this.getIcon(icon);
-    this.getBackground(icon);
-
-    this.setState({
-      city: dataDefault.name,
-      country: dataDefault.sys.country,
-      currentTemperature: Math.trunc(dataDefault.main.temp),
-      feelsLike: Math.trunc(dataDefault.main.feels_like),
-      humidity: dataDefault.main.humidity,
-      wind: Math.trunc(dataDefault.wind.speed),
-      weatherDescription: dataDefault.weather[0].description.replace(
-        dataDefault.weather[0].description[0],
-        dataDefault.weather[0].description[0].toUpperCase()
-      ),
-      gmt_offset: 3,
-      error: undefined,
+  getCity = (e) => {
+    e.preventDefault();
+    let city;
+    let currentCity = e.target.elements.city.value;
+    if (currentCity === undefined) {
+      city = "Moscow";
+      console.log(city);
+    } else {
+      city = currentCity;
+      console.log(city);
+    }
+    // return city;
+    return this.setState({
+      initialCity: city,
     });
   };
 
-  gettingWeather = async (e) => {
-    e.preventDefault();
-    const currentCity = e.target.elements.city.value;
+  getWeather = async () => {
+    const city = this.state.initialCity;
+    console.log(city, "funccity");
     try {
-      const apiUrl = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${currentCity}&appid=${apiKey}&units=metric`
+      const apiUrlDefault = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
       );
-      const data = await apiUrl.json();
+      const data = await apiUrlDefault.json();
       const icon = data.weather[0].icon;
 
-      this.getTimezone(currentCity);
+      console.log(data, "newdata");
+      this.getTimezone(city);
       this.getIcon(icon);
       this.getBackground(icon);
 
@@ -206,14 +194,20 @@ class App extends Component {
       });
     } catch (err) {
       this.setState({
-        error: "Incorrect city",
+        error: "Something is wrong",
       });
     }
   };
 
   componentDidMount() {
-    this.getDefaultWeather();
+    this.getWeather();
     this.getWeekday();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.initialCity !== this.state.initialCity) {
+      this.getWeather();
+    }
   }
 
   render() {
@@ -235,6 +229,7 @@ class App extends Component {
         weekday={this.state.weekday}
         background={this.state.background}
         error={this.state.error}
+        getCity={this.getCity}
       />
     );
   }

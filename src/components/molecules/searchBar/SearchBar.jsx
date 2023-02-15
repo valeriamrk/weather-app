@@ -4,9 +4,9 @@ import { CiTempHigh } from "react-icons/ci";
 import { IoSearchOutline } from "react-icons/io5";
 
 const SearchBar = (props) => {
-  const { gettingWeather } = props;
+  const { getCity } = props;
   return (
-    <S.SearchBar onSubmit={gettingWeather}>
+    <S.SearchBar onSubmit={getCity}>
       <S.TempIcon>
         <CiTempHigh />
       </S.TempIcon>

@@ -18,6 +18,7 @@ const MainPage = (props) => {
     datetime,
     gmt_offset,
     weekday,
+    getCity,
   } = props;
   return (
     <S.MainPageWrapper background={background}>
@@ -32,6 +33,7 @@ const MainPage = (props) => {
           wind={wind}
           error={error}
           icon={icon}
+          getCity={getCity}
         />
       </S.LeftBarWrapper>
       <S.MainInfoWrapper1>
