@@ -1,11 +1,11 @@
 import styled from "styled-components/macro";
+import { device } from "../../../device";
 
 export const LeftBarWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  /* width: 25%; */
   height: 100vh;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(5.5px);
@@ -15,13 +15,115 @@ export const LeftBarWrapper = styled.div`
   border-bottom-right-radius: 20px;
 `;
 
+// 1. Head block
+
 export const FirstBlock = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin-top: 20px;
-  width: 80%;
+  width: 85%;
 `;
+
+// City location
+
+export const CityContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-top: 40px;
+`;
+
+export const City = styled.div`
+  margin-left: 8px;
+
+  @media ${device.desktop} and (max-width: 4000px) {
+    font-size: 28px;
+  }
+  @media ${device.tablet} and (max-width: 1023px) {
+    font-size: 16px;
+  }
+  @media ${device.mobile} and (max-width: 767px) {
+    font-size: 14px;
+  }
+`;
+
+export const LocationIcon = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  @media ${device.desktop} and (max-width: 4000px) {
+    font-size: 36px;
+  }
+  @media ${device.tablet} and (max-width: 1023px) {
+    font-size: 16px;
+  }
+  @media ${device.mobile} and (max-width: 767px) {
+    font-size: 14px;
+  }
+`;
+
+// Temperature
+
+export const TempContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const TempText = styled.div`
+  font-weight: 700;
+
+  @media ${device.desktop} and (max-width: 4000px) {
+    font-size: 58px;
+  }
+  @media ${device.tablet} and (max-width: 1023px) {
+    font-size: 26px;
+  }
+  @media ${device.mobile} and (max-width: 767px) {
+    font-size: 14px;
+  }
+`;
+
+export const WeatherIcon = styled.img`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  @media ${device.desktop} and (max-width: 4000px) {
+    width: 100px;
+  }
+  @media ${device.tablet} and (max-width: 1023px) {
+    width: 50px;
+  }
+  @media ${device.mobile} and (max-width: 767px) {
+    width: 50px;
+  }
+`;
+
+// Feels like
+
+export const FeelsLikeText = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* font-size: 24px; */
+  margin-left: 8px;
+  @media ${device.desktop} and (max-width: 4000px) {
+    font-size: 20px;
+  }
+  @media ${device.tablet} and (max-width: 1023px) {
+    font-size: 16px;
+  }
+  @media ${device.mobile} and (max-width: 767px) {
+    font-size: 14px;
+  }
+`;
+
+// 2. Humidity/wind container
 
 export const SecondBlock = styled.div`
   display: flex;
@@ -31,93 +133,41 @@ export const SecondBlock = styled.div`
   width: 80%;
 `;
 
-export const TempContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  font-size: 64px;
-  font-weight: 700;
-`;
-
 export const WeatherContainer = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: 40px;
+  margin-top: 20px;
 `;
 
 export const WeatherText = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 24px;
-  margin-left: 16px;
-  @media (max-width: 768px) {
-    font-size: 18px;
-    margin-left: 8px;
+  margin-left: 8px;
+
+  @media ${device.desktop} and (max-width: 4000px) {
+    font-size: 20px;
+  }
+  @media ${device.tablet} and (max-width: 1023px) {
+    font-size: 16px;
+  }
+  @media ${device.mobile} and (max-width: 767px) {
+    font-size: 14px;
   }
 `;
 
-export const WeatherIcon = styled.div`
+export const HumWindIcon = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-size: 32px;
-  @media (max-width: 768px) {
-    font-size: 24px;
+
+  @media ${device.desktop} and (max-width: 4000px) {
+    font-size: 32px;
   }
-`;
-
-export const LocationIcon = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-`;
-
-export const CityContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  font-size: 36px;
-  margin-bottom: 20px;
-  margin-top: 40px;
-`;
-export const City = styled.div`
-  margin-left: 16px;
-  height: 90px;
-`;
-
-// Uv container
-
-export const UVTitle = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: center;
-  font-size: 24px;
-  margin-bottom: 16px;
-`;
-export const UVDescription = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-around;
-`;
-export const UVContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-  margin-bottom: 40px;
-`;
-export const UVSafeDanger = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  font-size: 14px;
-`;
-
-export const DotSize = styled.img`
-  width: 6px;
-  margin-right: 6px;
+  @media ${device.tablet} and (max-width: 1023px) {
+    font-size: 16px;
+  }
+  @media ${device.mobile} and (max-width: 767px) {
+    font-size: 14px;
+  }
 `;

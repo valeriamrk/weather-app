@@ -1,5 +1,6 @@
 import React from "react";
 import * as S from "./styles";
+import { SearchBar } from "../../../components";
 
 const MainInfo = (props) => {
   const {
@@ -13,6 +14,10 @@ const MainInfo = (props) => {
   } = props;
   return (
     <S.MainInfoWrapper>
+      <S.SearchBarWrapper>
+        <SearchBar />
+      </S.SearchBarWrapper>
+
       <S.Title>{weatherDescription}</S.Title>
       <S.Description>
         <img src={icon} alt="icon" />

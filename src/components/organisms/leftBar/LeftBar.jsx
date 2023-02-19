@@ -31,22 +31,22 @@ const LeftBar = (props) => {
           </S.City>
         </S.CityContainer>
         <S.TempContainer>
-          <img src={icon} alt="icon" />
-          {currentTemperature} °C
+          <S.WeatherIcon src={icon} alt="icon" />
+          <S.TempText>{currentTemperature} °C</S.TempText>
         </S.TempContainer>
-        <div> Feels like: {feelsLike}</div>
+        <S.FeelsLikeText> Feels like: {feelsLike}</S.FeelsLikeText>
       </S.FirstBlock>
       <S.SecondBlock>
         <S.WeatherContainer>
-          <S.WeatherIcon>
+          <S.HumWindIcon>
             <WiHumidity />
-          </S.WeatherIcon>
+          </S.HumWindIcon>
           <S.WeatherText>Humidity: {humidity}%</S.WeatherText>
         </S.WeatherContainer>
         <S.WeatherContainer>
-          <S.WeatherIcon>
+          <S.HumWindIcon>
             <WiStrongWind />
-          </S.WeatherIcon>
+          </S.HumWindIcon>
           <S.WeatherText>Wind: WSW {wind} mph</S.WeatherText>
         </S.WeatherContainer>
       </S.SecondBlock>

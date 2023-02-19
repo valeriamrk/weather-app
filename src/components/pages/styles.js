@@ -1,4 +1,5 @@
 import styled from "styled-components/macro";
+import { device } from "../../device";
 
 export const MainPageWrapper = styled.div`
   display: flex;
@@ -7,17 +8,39 @@ export const MainPageWrapper = styled.div`
   background-image: url(${(props) => props.background});
   background-size: cover;
   background-position: start;
+  @media ${device.mobile} and (max-width: 767px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
+
 export const LeftBarWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 25%;
+
+  @media ${device.desktop} and (max-width: 4000px) {
+    width: 30%;
+  }
+  @media ${device.tablet} and (max-width: 1023px) {
+    width: 30%;
+  }
+  @media ${device.mobile} and (max-width: 767px) {
+    display: none;
+  }
 `;
 export const MainInfoWrapper1 = styled.div`
   display: flex;
-  width: 75%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media ${device.desktop} and (max-width: 4000px) {
+    width: 70%;
+  }
+  @media ${device.tablet} and (max-width: 1023px) {
+    width: 70%;
+  }
+  @media ${device.mobile} and (max-width: 767px) {
+  }
 `;
