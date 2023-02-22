@@ -9,5 +9,3 @@ export const device = {
   tablet: `(min-width: ${size.tablet})`,
   mobile: `(min-width: ${size.mobile})`,
 };
-
-console.log(device);

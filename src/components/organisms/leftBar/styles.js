@@ -13,6 +13,11 @@ export const LeftBarWrapper = styled.div`
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
+  @media ${device.mobile} and (max-width: 767px) {
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 0px;
+  }
 `;
 
 // 1. Head block
@@ -24,6 +29,9 @@ export const FirstBlock = styled.div`
   justify-content: center;
   margin-top: 20px;
   width: 85%;
+  @media ${device.mobile} and (max-width: 767px) {
+    margin-top: 0px;
+  }
 `;
 
 // City location
@@ -34,6 +42,10 @@ export const CityContainer = styled.div`
   justify-content: center;
   margin-bottom: 20px;
   margin-top: 40px;
+  @media ${device.mobile} and (max-width: 767px) {
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
 `;
 
 export const City = styled.div`
@@ -131,12 +143,18 @@ export const SecondBlock = styled.div`
   align-items: flex-start;
   margin-bottom: 40px;
   width: 80%;
+  @media ${device.mobile} and (max-width: 767px) {
+    margin-bottom: 16px;
+  }
 `;
 
 export const WeatherContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 20px;
+  @media ${device.mobile} and (max-width: 767px) {
+    margin-top: 10px;
+  }
 `;
 
 export const WeatherText = styled.div`

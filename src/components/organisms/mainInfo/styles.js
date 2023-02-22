@@ -28,10 +28,12 @@ export const Title = styled.div`
   @media ${device.tablet} and (max-width: 1023px) {
     font-size: 60px;
     margin-left: 60px;
+    margin-right: 16px;
   }
   @media ${device.mobile} and (max-width: 767px) {
     font-size: 40px;
-    /* margin-left: 20px; */
+    margin-left: 20px;
+    margin-right: 8px;
   }
 `;
 
@@ -40,31 +42,18 @@ export const Description = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 32px;
-  margin-top: 40px;
   @media ${device.desktop} and (max-width: 4000px) {
     font-size: 32px;
     margin-left: 50px;
+    margin-top: 40px;
   }
   @media ${device.tablet} and (max-width: 1023px) {
     font-size: 28px;
     margin-left: 50px;
+    margin-top: 40px;
   }
   @media ${device.mobile} and (max-width: 767px) {
     font-size: 16px;
-  }
-`;
-
-export const SearchBarWrapper = styled.div`
-  @media ${device.desktop} and (max-width: 4000px) {
-    display: none;
-  }
-  @media ${device.tablet} and (max-width: 1023px) {
-    display: none;
-  }
-  @media ${device.mobile} and (max-width: 767px) {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-bottom: 20px;
+    /* margin-bottom: 30px; */
   }
 `;

@@ -153,12 +153,9 @@ class App extends Component {
     let currentCity = e.target.elements.city.value;
     if (currentCity === undefined) {
       city = "Moscow";
-      console.log(city);
     } else {
       city = currentCity;
-      console.log(city);
     }
-    // return city;
     return this.setState({
       initialCity: city,
     });
@@ -166,7 +163,6 @@ class App extends Component {
 
   getWeather = async () => {
     const city = this.state.initialCity;
-    console.log(city, "funccity");
     try {
       const apiUrlDefault = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
@@ -174,7 +170,6 @@ class App extends Component {
       const data = await apiUrlDefault.json();
       const icon = data.weather[0].icon;
 
-      console.log(data, "newdata");
       this.getTimezone(city);
       this.getIcon(icon);
       this.getBackground(icon);

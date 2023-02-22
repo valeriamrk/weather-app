@@ -11,6 +11,7 @@ export const MainPageWrapper = styled.div`
   @media ${device.mobile} and (max-width: 767px) {
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
   }
 `;
 
@@ -25,7 +26,8 @@ export const LeftBarWrapper = styled.div`
     width: 30%;
   }
   @media ${device.mobile} and (max-width: 767px) {
-    display: none;
+    height: 30%;
+    width: 100%;
   }
 `;
 export const MainInfoWrapper1 = styled.div`
@@ -42,5 +44,6 @@ export const MainInfoWrapper1 = styled.div`
     width: 70%;
   }
   @media ${device.mobile} and (max-width: 767px) {
+    height: 70%;
   }
 `;
