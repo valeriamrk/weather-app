@@ -2,24 +2,8 @@ import "./App.css";
 import { MainPage } from "./components";
 import React, { Component } from "react";
 // import { API_KEY, TIMEZONE_KEY } from "./config/config";
-import clear_sky_day from "./assets/images/clear_sky_day.jpeg";
-import clear_sky_night from "./assets/images/clear_sky_night.jpeg";
-import scattered_clouds_day from "./assets/images/scattered_clouds_day.jpeg";
-import scattered_clouds_night from "./assets/images/scattered_clouds_night.jpeg";
-import few_clouds_day from "./assets/images/few_clouds_day.jpeg";
-import few_clouds_night from "./assets/images/few_clouds_night.jpeg";
-import broken_clouds_day from "./assets/images/broken_clouds_day.jpeg";
-import broken_clouds_night from "./assets/images/broken_clouds_night.jpeg";
-import shower_rain_day from "./assets/images/shower_rain_day.webp";
-import shower_rain_night from "./assets/images/shower_rain_night.jpeg";
-import rain_day from "./assets/images/rain_day.jpeg";
-import rain_night from "./assets/images/rain_night.jpeg";
-import thunderstorm_day from "./assets/images/thunderstorm_day.jpeg";
-import thunderstorm_night from "./assets/images/thunderstorm_night.jpeg";
-import snow_day from "./assets/images/snow_day.jpeg";
-import snow_night from "./assets/images/snow_night.jpeg";
-import mist_day from "./assets/images/mist_day.jpeg";
-import mist_night from "./assets/images/mist_night.webp";
+import backgrounds from "./assets/constants/backgrounds";
+import icon from "./assets/constants/icons";
 
 // const apiKey = API_KEY;
 // const timezoneKey = TIMEZONE_KEY;
@@ -44,61 +28,97 @@ class App extends Component {
     background: undefined,
   };
 
-  backgroundState = [
+  imagesState = [
     {
       iconCode: "01d",
-      backgroundId: clear_sky_day,
+      backgroundId: backgrounds.clear_sky_day,
+      iconID: icon.icon_01d,
     },
     {
       iconCode: "01n",
-      backgroundId: clear_sky_night,
+      backgroundId: backgrounds.clear_sky_night,
+      iconID: icon.icon_01n,
     },
     {
       iconCode: "02d",
-      backgroundId: few_clouds_day,
+      backgroundId: backgrounds.few_clouds_day,
+      iconID: icon.icon_02d,
     },
     {
       iconCode: "02n",
-      backgroundId: few_clouds_night,
+      backgroundId: backgrounds.few_clouds_night,
+      iconID: icon.icon_02n,
     },
     {
       iconCode: "03d",
-      backgroundId: scattered_clouds_day,
+      backgroundId: backgrounds.scattered_clouds_day,
+      iconID: icon.icon_03d,
     },
     {
       iconCode: "03n",
-      backgroundId: scattered_clouds_night,
+      backgroundId: backgrounds.scattered_clouds_night,
+      iconID: icon.icon_03n,
     },
     {
       iconCode: "04d",
-      backgroundId: broken_clouds_day,
+      backgroundId: backgrounds.broken_clouds_day,
+      iconID: icon.icon_04d,
     },
     {
       iconCode: "04n",
-      backgroundId: broken_clouds_night,
+      backgroundId: backgrounds.broken_clouds_night,
+      iconID: icon.icon_04n,
     },
     {
       iconCode: "09d",
-      backgroundId: shower_rain_day,
+      backgroundId: backgrounds.shower_rain_day,
+      iconID: icon.icon_09d,
     },
     {
       iconCode: "09n",
-      backgroundId: shower_rain_night,
+      backgroundId: backgrounds.shower_rain_night,
+      iconID: icon.icon_09n,
     },
-    { iconCode: "10d", backgroundId: rain_day },
-    { iconCode: "10n", backgroundId: rain_night },
+    {
+      iconCode: "10d",
+      backgroundId: backgrounds.rain_day,
+      iconID: icon.icon_10d,
+    },
+    {
+      iconCode: "10n",
+      backgroundId: backgrounds.rain_night,
+      iconID: icon.icon_10n,
+    },
     {
       iconCode: "11d",
-      backgroundId: thunderstorm_day,
+      backgroundId: backgrounds.thunderstorm_day,
+      iconID: icon.icon_11d,
     },
     {
       iconCode: "11n",
-      backgroundId: thunderstorm_night,
+      backgroundId: backgrounds.thunderstorm_night,
+      iconID: icon.icon_11n,
     },
-    { iconCode: "13d", backgroundId: snow_day },
-    { iconCode: "13n", backgroundId: snow_night },
-    { iconCode: "50d", backgroundId: mist_day },
-    { iconCode: "50n", backgroundId: mist_night },
+    {
+      iconCode: "13d",
+      backgroundId: backgrounds.snow_day,
+      iconID: icon.icon_13d,
+    },
+    {
+      iconCode: "13n",
+      backgroundId: backgrounds.snow_night,
+      iconID: icon.icon_13n,
+    },
+    {
+      iconCode: "50d",
+      backgroundId: backgrounds.mist_day,
+      iconID: icon.icon_50d,
+    },
+    {
+      iconCode: "50n",
+      backgroundId: backgrounds.mist_night,
+      iconID: icon.icon_50n,
+    },
   ];
 
   getWeekday = () => {
@@ -127,18 +147,8 @@ class App extends Component {
   };
 
   getIcon = async (icon) => {
-    const iconUrl = await fetch(
-      `http://openweathermap.org/img/wn/${icon}@2x.png`
-    );
-    const iconLink = iconUrl.url;
-    this.setState({
-      icon: iconLink,
-    });
-  };
-
-  getBackground = (icon) => {
     let result;
-    this.backgroundState.map((item) => {
+    this.imagesState.map((item) => {
       if (item.iconCode === icon) {
         result = item.backgroundId;
       }
@@ -146,6 +156,19 @@ class App extends Component {
     });
     this.setState({
       background: result,
+    });
+  };
+
+  getBackground = (icon) => {
+    let result;
+    this.imagesState.map((item) => {
+      if (item.iconCode === icon) {
+        result = item.iconID;
+      }
+      return result;
+    });
+    this.setState({
+      icon: result,
     });
   };
 
@@ -171,6 +194,7 @@ class App extends Component {
       );
       const data = await apiUrlDefault.json();
       const icon = data.weather[0].icon;
+      console.log(icon);
 
       this.getTimezone(city);
       this.getIcon(icon);
