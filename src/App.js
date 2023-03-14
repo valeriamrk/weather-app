@@ -1,7 +1,7 @@
 import "./App.css";
 import { MainPage } from "./components";
 import React, { Component } from "react";
-import { API_KEY, TIMEZONE_KEY } from "./config/config";
+// import { API_KEY, TIMEZONE_KEY } from "./config/config";
 import clear_sky_day from "./assets/images/clear_sky_day.jpeg";
 import clear_sky_night from "./assets/images/clear_sky_night.jpeg";
 import scattered_clouds_day from "./assets/images/scattered_clouds_day.jpeg";
