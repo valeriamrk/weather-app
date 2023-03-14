@@ -21,8 +21,10 @@ import snow_night from "./assets/images/snow_night.jpeg";
 import mist_day from "./assets/images/mist_day.jpeg";
 import mist_night from "./assets/images/mist_night.webp";
 
-const apiKey = API_KEY;
-const timezoneKey = TIMEZONE_KEY;
+// const apiKey = API_KEY;
+// const timezoneKey = TIMEZONE_KEY;
+const apiKey = "b935b1d1f1a5b4258d1e9985cb951be1";
+const timezoneKey = "c5dbe5c60fa3438fbfd9b882f6d9fa00";
 
 class App extends Component {
   state = {
