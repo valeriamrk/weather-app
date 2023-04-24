@@ -17,6 +17,9 @@ export const LeftBarWrapper = styled.div`
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
     border-top-right-radius: 0px;
+    background: none;
+    backdrop-filter: none;
+    border: none;
   }
 `;
 
